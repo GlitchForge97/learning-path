@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css">
+  <title>CodeQuest - Interactive Learning Platform</title>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="animated-bg">
+   <div class="floating-shape shape-1"></div>
+   <div class="floating-shape shape-2"></div>
+   <div class="floating-shape shape-3"></div>
+   <div class="floating-shape shape-4"></div>
+  </div>
+  <div class="particles" id="particles"></div>
+  <header>
+   <h1 class="logo" id="platform-title">CodeQuest Academy</h1>
+   <p class="subtitle" id="hero-subtitle">Master Web Development Through Interactive Adventures</p>
+   <div class="progress-overview">
+    <div class="stat-card">
+     <div class="stat-number" id="completed-count">
+      0
+     </div>
+     <div class="stat-label">
+      Completed
+     </div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-number" id="total-progress">
+      0%
+     </div>
+     <div class="stat-label">
+      Progress
+     </div>
+    </div>
+    <div class="stat-card">
+     <div class="stat-number" id="unlocked-count">
+      1
+     </div>
+     <div class="stat-label">
+      Unlocked
+     </div>
+    </div>
+   </div><button class="start-button" id="welcome-btn">🚀 <span id="welcome-message">Begin Your Coding Journey</span></button>
+  </header>
+  <main>
+   <div class="learning-map" id="learning-map"><!-- Connection lines will be added dynamically --> <!-- HTML Modules -->
+    <div class="module-node html-basics" data-module="html-basics">
+     <div class="module-icon">
+      🏗️
+     </div>
+     <div class="module-title">
+      HTML Basics
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Learn the foundation of web development
+     </div>
+    </div>
+    <div class="module-node html-semantic locked" data-module="html-semantic">
+     <div class="module-icon">
+      📋
+     </div>
+     <div class="module-title">
+      Semantic HTML
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Master meaningful HTML structure
+     </div>
+    </div>
+    <div class="module-node html-forms locked" data-module="html-forms">
+     <div class="module-icon">
+      📝
+     </div>
+     <div class="module-title">
+      HTML Forms
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Create interactive user inputs
+     </div>
+    </div><!-- CSS Modules -->
+    <div class="module-node css-basics locked" data-module="css-basics">
+     <div class="module-icon">
+      🎨
+     </div>
+     <div class="module-title">
+      CSS Basics
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Style your web pages beautifully
+     </div>
+    </div>
+    <div class="module-node css-layouts locked" data-module="css-layouts">
+     <div class="module-icon">
+      📐
+     </div>
+     <div class="module-title">
+      CSS Layouts
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Master Flexbox and Grid systems
+     </div>
+    </div>
+    <div class="module-node css-responsive locked" data-module="css-responsive">
+     <div class="module-icon">
+      📱
+     </div>
+     <div class="module-title">
+      Responsive Design
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Make sites work on all devices
+     </div>
+    </div>
+    <div class="module-node css-animations locked" data-module="css-animations">
+     <div class="module-icon">
+      ✨
+     </div>
+     <div class="module-title">
+      CSS Animations
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Bring your designs to life
+     </div>
+    </div><!-- JavaScript Modules -->
+    <div class="module-node js-basics locked" data-module="js-basics">
+     <div class="module-icon">
+      ⚡
+     </div>
+     <div class="module-title">
+      JS Basics
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Learn programming fundamentals
+     </div>
+    </div>
+    <div class="module-node js-dom locked" data-module="js-dom">
+     <div class="module-icon">
+      🔧
+     </div>
+     <div class="module-title">
+      DOM Manipulation
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Control web page elements
+     </div>
+    </div>
+    <div class="module-node js-async locked" data-module="js-async">
+     <div class="module-icon">
+      🌐
+     </div>
+     <div class="module-title">
+      Async JavaScript
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Handle data and API calls
+     </div>
+    </div>
+    <div class="module-node js-advanced locked" data-module="js-advanced">
+     <div class="module-icon">
+      🚀
+     </div>
+     <div class="module-title">
+      Advanced JS
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Master complex JavaScript concepts
+     </div>
+    </div><!-- Certification Exam -->
+    <div class="module-node certification-exam locked" data-module="certification-exam">
+     <div class="module-icon">
+      🏆
+     </div>
+     <div class="module-title">
+      Certification Exam
+     </div>
+     <div class="module-progress">
+      <div class="progress-fill" style="width: 0%"></div>
+     </div>
+     <div class="module-tooltip">
+      Earn your Web Developer Certificate
+     </div>
+    </div>
+   </div>
+  </main>
+  <footer>
+   <div class="footer-content">
+    <div class="footer-links"><a href="#" class="footer-link">About</a> <a href="#" class="footer-link">Courses</a> <a href="#" class="footer-link">Community</a> <a href="#" class="footer-link">Support</a> <a href="#" class="footer-link">Blog</a>
+    </div>
+    <div class="copyright">
+     © 2025 Made by <span id="footer-company">GlitchForge</span>. All rights reserved.
+    </div>
+   </div>
+  </footer>
+  <div class="celebration" id="celebration"></div><!-- Exam Modal -->
+  <div class="exam-modal" id="exam-modal">
+   <div class="exam-content">
+    <div class="exam-header">
+     <h2>🏆 Web Developer Certification Exam</h2>
+     <p>Test your knowledge across all modules to earn your certificate!</p>
+     <div class="exam-stats"><span>Questions: <strong id="question-count">15</strong></span> <span>Time: <strong id="time-remaining">30:00</strong></span> <span>Passing Score: <strong>80%</strong></span>
+     </div>
+    </div>
+    <div class="exam-body" id="exam-body">
+     <div class="question-container">
+      <div class="question-number">
+       Question <span id="current-question">1</span> of <span id="total-questions">15</span>
+      </div>
+      <div class="question-text" id="question-text">
+       Loading question...
+      </div>
+      <div class="question-options" id="question-options"><!-- Options will be populated dynamically -->
+      </div>
+     </div>
+     <div class="exam-controls"><button class="exam-btn secondary" id="prev-btn" disabled>← Previous</button> <button class="exam-btn primary" id="next-btn">Next →</button> <button class="exam-btn success" id="submit-btn" style="display: none;">Submit Exam</button>
+     </div>
+    </div>
+    <div class="exam-results" id="exam-results" style="display: none;">
+     <div class="results-header">
+      <div class="score-circle">
+       <div class="score-text" id="final-score">
+        0%
+       </div>
+      </div>
+      <h3 id="results-title">Exam Complete!</h3>
+      <p id="results-message">Calculating your results...</p>
+     </div>
+     <div class="certificate-preview" id="certificate-preview" style="display: none;">
+      <div class="certificate">
+       <div class="certificate-header">
+        🏆 CERTIFICATE OF COMPLETION 🏆
+       </div>
+       <div class="certificate-title" id="cert-title">
+        Certified Web Developer
+       </div>
+       <div class="certificate-name">
+        This certifies that
+       </div>
+       <div class="certificate-recipient">
+        CodeQuest Graduate
+       </div>
+       <div class="certificate-text">
+        has successfully completed the Web Development Learning Path
+       </div>
+       <div class="certificate-score">
+        Final Score: <span id="cert-score">0%</span>
+       </div>
+       <div class="certificate-date">
+        Completed: <span id="cert-date"></span>
+       </div>
+       <div class="certificate-signature">
+        <div class="signature-line"></div>
+        <div class="signature-text" id="cert-company">
+         GlitchForge Academy
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="results-actions"><button class="exam-btn primary" id="download-cert" style="display: none;">📜 Download Certificate</button> <button class="exam-btn secondary" id="retake-exam">🔄 Retake Exam</button> <button class="exam-btn" id="close-exam">✨ Continue Learning</button>
+     </div>
+    </div><button class="close-modal" id="close-modal">×</button>
+   </div>
+  </div>
+   <script src="script.js"></script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98f8c8ebd64325b1',t:'MTc2MDYzMDU5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
